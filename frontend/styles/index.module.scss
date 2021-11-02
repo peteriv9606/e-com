@@ -1,0 +1,43 @@
+.Wrapper {
+  min-height: inherit;
+}
+
+.Inner {  
+  
+}
+.Orderline_wrapper{
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.Orderline {
+  margin-bottom: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  border: 1px solid black;
+  
+  >p{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+
+    >button {
+      background-color: transparent;
+      border: none;
+      outline: none;
+    }
+  }
+}
+
+.Orderline_details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+

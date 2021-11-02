@@ -1,0 +1,94 @@
+.Product {
+    margin-bottom: 20px;
+    margin-right: 5px;
+    padding: 10px;
+    width: 22%;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid rgb(223, 223, 223);
+    border-radius: 6px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1); 
+  
+    
+    >a{
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border-radius: 6px;
+      text-decoration: none;
+      color:rgba(0, 0, 0, 0.6);
+      transition: 0.6s;
+
+      >img{
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        height: 240px;
+        width: 100%;
+        object-fit: cover;
+      }
+      >h1{
+        font-size: 22px;
+        white-space: pre;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+        
+      }
+    }
+    >a:hover{
+      transition: 0.6s;
+      color:rgba(0, 0, 0, 1)
+    }
+  }
+  
+  .Product_actions {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  
+    >p{
+      // price
+      font-size: 20px;
+      font-weight: 700;
+      font-style: italic;
+      color:rgba(0, 0, 0, 0.6);
+      cursor: default;
+      user-select: none;
+    }  
+    button {
+      font-weight: 700;
+      font-size: 16px;
+      border: none;
+    }
+    >button {
+      font-size: 14px;
+      margin-top:0;
+    }
+  }
+
+  .Quantity_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(200,200,200);
+    border-radius: 6px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1); 
+    
+    > p {
+      margin: 0 10px;
+      font-size: 16px;
+    }
+  
+  
+    >button:first-of-type{
+      color: red;
+      border-right: 1px solid rgb(200,200,200);
+    }
+    >button:last-of-type{
+      color: green;
+      border-left: 1px solid rgb(200,200,200);
+    }
+  }

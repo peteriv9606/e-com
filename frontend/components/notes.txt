@@ -1,0 +1,52 @@
+react-toastify:
+
+  import React from 'react';
+
+  import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+  
+  function App(){
+    const notify = () => toast("Wow so easy!");
+
+    return (
+      <div>
+        <button onClick={notify}>Notify!</button>
+        <ToastContainer />
+      </div>
+    );
+  }
+
+  _________________________________________________
+
+  more than just a string:
+
+  const notify = () => toast(<Msg />);
+
+  const Msg = ({ closeToast, toastProps }) => (
+    <div>
+      Lorem ipsum dolor {toastProps.position}
+      <button>Retry</button>
+      <button onClick={closeToast}>Close</button>
+    </div>
+  )
+
+_________________________________________________
+
+"I promise"
+
+toast.promise(
+  fetchWithToken(process.env.apiUrl + 'check_token_validity/').then(res=>res.json()),
+  {
+    pending: "Promise is pending",
+    success: {
+      render({data}){
+        return data.detail
+      }
+    },
+    error:{
+      render({data}){
+        return data.detail
+      }
+    }
+  }
+)

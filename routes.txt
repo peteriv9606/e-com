@@ -1,0 +1,10 @@
+
+# All request should be with prefix of: <protocol>//<hostname>/api/  (ex. http://localhost:8000/api/)
+
+URL				METHOD	RESULT							EXPECTED INPUT
+orderlines/<id>/		GET	returns a single orderline				-
+orders/				GET	returns all orders					-
+orders/<id>/			GET	returns single order (per user)				-
+orders/				POST	adds orderline to current order (needs login)		BODY<json_obj>: {"product":<int:(id)>,"quantity":<int(number)>}
+orders/remove_from_cart/	DELETE	removes orderline from current order (needs login)	BODY<json_obj>: {"id":<int:(order_id)}
+orders/<id>/			DELETE	removes the whole order (needs login)			-

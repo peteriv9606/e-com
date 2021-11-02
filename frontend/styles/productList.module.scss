@@ -1,0 +1,24 @@
+.Products_wrapper {
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+
+  >div:first-of-type{
+    display: flex;
+    justify-content: space-between;
+    >h1{
+      margin-bottom: 20px;
+      font-size: 26px;
+      font-weight: 700;
+    }
+  }
+
+  >a{ 
+    margin-top: 10px;
+  }
+}
+.Products_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
