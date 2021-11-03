@@ -4,17 +4,21 @@ import Orderline from '../components/account/orderline'
 import { useState, useEffect } from 'react'
 import { fetchWithToken } from '../components/main/auth'
 import Loader from '../components/main/loader'
+import { toast } from 'react-toastify'
 
 export default function Orders() {
   const [order, setOrder] = useState()
 
   useEffect(async () => {
-    setOrder(await fetchWithToken(process.env.apiUrl + 'orders/').then(res => res.json()))
+    const ord = await fetchWithToken(process.env.apiUrl + 'orders/').then(res => res.json())
+    setOrder(ord)
   }, [])
 
   const deleteOrder = async () => {
-    setOrder(await fetchWithToken(process.env.apiUrl + 'orders/' + order.id + "/",
-    { method: "DELETE" }).then(res => res.json()))
+    const ord = await fetchWithToken(process.env.apiUrl + 'orders/' + order.id + "/",
+    { method: "DELETE" }).then(res => res.json())
+    setOrder(ord)
+    toast.success("Order deleted!")
   }
 
   return (
@@ -61,7 +65,7 @@ export default function Orders() {
                 <h1>Order total:</h1>
                 <span>${parseFloat(order?.orderlines_price_total).toFixed(2)}</span>
               </div>
-              <button className="Button" onClick={() => alert("Function not yet integrated :(")}>Checkout</button>
+              <button className="Button" onClick={() => toast.info("Function not yet integrated")}>Checkout</button>
             </>
             : ""
         }

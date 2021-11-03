@@ -5,6 +5,7 @@ import Layout from "../components/main/layout"
 import { useState, useEffect } from "react"
 import Cookies from "js-cookie";
 import Loader from "../components/main/loader"
+import { toast } from 'react-toastify'
 
 export default function Login() {
 
@@ -86,6 +87,7 @@ export default function Login() {
                 // something is terribly wrong.. cant login either 500 or something else
                 res.json().then(res => {
                     setIsLoading(false)
+                    toast.error("See console for more details")
                     console.error(res)
                 })
 

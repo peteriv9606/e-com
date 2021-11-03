@@ -9,6 +9,7 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from .models import *
 from .serializers import *
 from rest_framework.pagination import PageNumberPagination
+from rest_framework_simplejwt.views import TokenObtainPairView
 
 # VIEWSETS
 
@@ -209,3 +210,8 @@ class CheckTokenValidity(views.APIView):
         # if the response is shown, request has a valid access token attached
 
         return Response({"detail": "OK"}, status=HTTP_200_OK)
+
+class CustomTokenObtainPairView(TokenObtainPairView):
+
+    serializer_class = CustomTokenObtainPairSerializer
+    token_obtain_pair = TokenObtainPairView.as_view()

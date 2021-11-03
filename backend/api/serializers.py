@@ -5,6 +5,7 @@ from django.template.defaultfilters import urlize, urlizetrunc
 from rest_framework import serializers
 from core import settings
 from .models import *
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 class FullUserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -98,3 +99,11 @@ class OrderSerializer(serializers.ModelSerializer):
         for line in orderlines:
             total = total + line.line_total
         return round(total, 2)
+
+class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
+    # add custom fields to token payload
+    @classmethod
+    def get_token(cls, user):
+        token = super().get_token(user)
+        token['username'] = user.username
+        return token

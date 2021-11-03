@@ -1,17 +1,12 @@
-import router from "next/router"
-
-
 /**Build URL and fetch is used in pagination and router queries. 
  * 
  * Build URL and fetch uses JS Built-in fetch (no token attached!)
- * as well as next/router - router to push to router
  * 
  * Usage: fetch(www.web.com/api/${path}${queryObj})
  * 
  * 
  * @param {object} queryObj - provide the query params as object ({'page':2, 'order': '-id'})
  * @param {string} path - provide path to fetch
- * @param {boolean} shallow - state if you like shallow rendering (default=false)
  * 
  * Function returns response from fetch
  */

@@ -60,65 +60,6 @@ export default function Products({ ssr_products, ssr_ordering, ssr_page }) {
         }
     }, [router.query])
     
-/*     const changePage = async (e) => {
-        console.log("CHANGE PAGE EXECUTED")
-        let rq = router.query        
-        let selectedPage = e.selected + 1
-        selectedPage === 1 ? delete rq.page : rq = merge(rq, { 'page': selectedPage })
-        console.log("RQ: ", rq)
-        let url = ''
-        Object.entries(rq).forEach(([key, value], index) => {
-            url += index === 0 ? `?${key}=${value}` : `&${key}=${value}`
-        })
-        router.push(url, url, {shallow: true})
-    }
-
-    const changeOrder = async (e) => {
-        console.log("CHANGE ORDER EXECUTED")
-        let rq = router.query
-        let selectedOrder = e.target.id
-        delete rq?.page
-        selectedOrder === '' ? delete rq.ordering : rq = merge(rq, { 'ordering': selectedOrder })
-        console.log("RQ: ", rq)
-        let url = ''
-        Object.entries(rq).forEach(([key, value], index) => {
-            url += index === 0 ? `?${key}=${value}` : `&${key}=${value}`
-        })
-        router.push(url, url, {shallow: true})
-    } 
-
-    const handleOrdering = async (pageRmv = true) => {
-        console.log("HANDLE ORDERING EXECUTED")
-        if (ordering !== null) {
-            let rq = router.query
-            pageRmv && rq.page ? delete rq?.page : ""
-            setCurrentPage(1)
-            if (ordering === "") {
-                delete rq['ordering']
-            } else {
-                rq = merge(rq, {
-                    ordering: ordering
-                })
-            }
-            setProducts(await buildUrlAndFetch(rq, 'products', true))
-        }
-    } 
-
-    useEffect(() => {
-        console.log("INIT UseEffect")
-        handleOrdering(false)
-    }, [])
-    
-    useEffect(() => {
-        console.log("useEffect ORDERING", ordering)
-        !initRender && ordering !== null && handleOrdering(true)
-        setInitRender(false)
-    }, [ordering])
-
-   
-    
-    useEffect(() => { console.log("CurrentPage", currentPage) }, [currentPage]) */
-
     return (
         <Layout>
             <Head>

@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Layout from "../components/main/layout";
 import styles from "../styles/cart_page.module.scss"
+import AccountOrdersBlock from '../blocks/accountOrdersBlock'
 
 export default function Cart(){
     return (
@@ -13,6 +14,7 @@ export default function Cart(){
                 <div className="Shell">
                     <div className={styles.Inner}>
                         <h1>Cart</h1>
+                        <AccountOrdersBlock />
                     </div>
                 </div>
             </div>
